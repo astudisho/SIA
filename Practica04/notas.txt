@@ -1,0 +1,26 @@
+distancia euclidiana	raiz( (x2 - x1) + (y2 - y1) )
+
+ciudad01( 38.24, 20.42 )
+ciudad02( 39.57, 26.15 )
+ciudad03( 40.56, 25.32 )
+ciudad04( 36.26, 03.12 )
+ciudad05( 33.48, 10.54 )
+ciudad06( 37.56, 12.19 )
+ciudad07
+
+numero de ciudades n = 17
+a = 1 y b = 5
+Q = 20
+p = 0.9
+r_0 10 ^ -6
+
+criterio de terminacion = 20 generaciones
+
+Implementar simulacion y reporte algunas graficas significativas del mejor 
+camino encontrado
+
+Mejor camino en texto 
+
+Longitud 127
+
+
