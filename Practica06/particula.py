@@ -8,9 +8,9 @@ class Particula():
 		self.__vecindario = []
 		self.__posicion = []
 		self.__velocidad = []
-		self.__fitness = -1
+		self.__fitness = None
 
-		self.__mejorFitness = -1
+		self.__mejorFitness = None
 		self.__mejorPosicion = []
 		self.__mejorVecino = None
 		self.__velocidadMax = velocidadMax
@@ -56,6 +56,7 @@ class Particula():
 		for vecino in self.__vecindario:
 			if vecino.getFitness() < mejorVal:
 				mejorVecino = vecino
+				mejorVal = mejorVecino.getFitness()
 
 		self.__mejorVecino = mejorVecino
 
@@ -98,7 +99,9 @@ class Particula():
 		self.calculaFitness()
 
 		if self.getFitness() < self.__mejorFitness:
+			#print("Encontro mejor fitness")
 			self.__mejorPosicion = self.getPosicion()
+			self.__mejorFitness = self.getFitness()
 
 		self.__posicion = posicionAuxiliar
 

@@ -45,6 +45,7 @@ class Enjambre():
 
 			listaDistancias = sorted( listaDistancias )
 			listaDistancias.pop( 0 )
+
 			vecindario = []
 
 			for indice in listaDistancias[ : self.__tamVecindario ]:

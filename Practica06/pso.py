@@ -1,13 +1,13 @@
 import enjambre as enj
 
-#enj.rnd.seed(12345)
+enj.rnd.seed(2)
 
 '''
 	Enjambre(self, numParticulas, numGeneraciones, numDimensiones, tamVecindario, 
 				 rangoMin, rangoMax, velocidadMax, funcionFitness):
 '''
 
-NUM_PARTICULAS = 100
+NUM_PARTICULAS = 20
 NUM_GENERACIONES = 40
 NUM_DIMENSIONES = 10
 TAM_VECINDARIO = 5
@@ -37,4 +37,6 @@ if __name__ == '__main__':
 		e.correGeneracion()
 
 		if (e.getContadorGeneraciones() % 10) == 0:
-			e.imprimeMuestra()
+			#e.imprimeMuestra()
+			print( "Generacion " + str( e.getContadorGeneraciones() ) + '\n\n' )
+			print(e)
