@@ -23,6 +23,7 @@ class Particula():
 		self.__rangoMin = rangoMin
 		self.__rangoMax = rangoMax
 		self.__numDimensiones = numDimensiones
+		self.__tamVecindario = tamVecindario
 
 		self.__inicializar()
 
@@ -67,8 +68,12 @@ class Particula():
 		for i in range( self.__numDimensiones ):
 			#print( self.__mejorVecino.getPosicion()[ i ] )
 
-			BiXi = self.__mejorPosicion[ i ] - self.__posicion[ i ]			
-			HiXi = self.__mejorVecino.getPosicion()[ i ] - self.__posicion[ i ]
+			BiXi = self.__mejorPosicion[ i ] - self.__posicion[ i ]
+
+			if self.__tamVecindario == 0:
+				HiXi = 0
+			else:
+				HiXi = self.__mejorVecino.getPosicion()[ i ] - self.__posicion[ i ]
 
 			aux = self.__phi1[ i ] * BiXi
 			aux1 = self.__phi2[ i ] * HiXi
