@@ -8,9 +8,9 @@ class Particula():
 		self.__vecindario = []
 		self.__posicion = []
 		self.__velocidad = []
-		self.__fitness = -1
+		self.__fitness = None
 
-		self.__mejorFitness = -1
+		self.__mejorFitness = None
 		self.__mejorPosicion = []
 		self.__mejorVecino = None
 		self.__velocidadMax = velocidadMax
@@ -23,6 +23,7 @@ class Particula():
 		self.__rangoMin = rangoMin
 		self.__rangoMax = rangoMax
 		self.__numDimensiones = numDimensiones
+		self.__tamVecindario = tamVecindario
 
 		self.__inicializar()
 
@@ -56,6 +57,7 @@ class Particula():
 		for vecino in self.__vecindario:
 			if vecino.getFitness() < mejorVal:
 				mejorVecino = vecino
+				mejorVal = mejorVecino.getFitness()
 
 		self.__mejorVecino = mejorVecino
 
@@ -66,8 +68,12 @@ class Particula():
 		for i in range( self.__numDimensiones ):
 			#print( self.__mejorVecino.getPosicion()[ i ] )
 
-			BiXi = self.__mejorPosicion[ i ] - self.__posicion[ i ]			
-			HiXi = self.__mejorVecino.getPosicion()[ i ] - self.__posicion[ i ]
+			BiXi = self.__mejorPosicion[ i ] - self.__posicion[ i ]
+
+			if self.__tamVecindario == 0:
+				HiXi = 0
+			else:
+				HiXi = self.__mejorVecino.getPosicion()[ i ] - self.__posicion[ i ]
 
 			aux = self.__phi1[ i ] * BiXi
 			aux1 = self.__phi2[ i ] * HiXi
@@ -98,7 +104,9 @@ class Particula():
 		self.calculaFitness()
 
 		if self.getFitness() < self.__mejorFitness:
+			#print("Encontro mejor fitness")
 			self.__mejorPosicion = self.getPosicion()
+			self.__mejorFitness = self.getFitness()
 
 		self.__posicion = posicionAuxiliar
 
