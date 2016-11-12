@@ -1,15 +1,16 @@
 #Algoritmo genetico evolutivo continuo
 import random, sys
 
+random.seed(201610123)
 
 NUM_DECIMALES = 28
 MAX_FITNESS = sys.maxint
-MAX_GENERACIONES = 100
+MAX_GENERACIONES = 1000
 MAX_POBLACION = 20
 NUM_ALELOS = 20
 ALELO_MIN = -5
 ALELO_MAX = 5
-MUTACION = 0.10
+MUTACION = 0.02
 
 
 def funcionFitness( genoma ):
@@ -30,7 +31,7 @@ class Individuo(object):
 	def __init__(self, genoma):
 		super(Individuo, self).__init__()
 		self.genoma = genoma
-		self.fitness = -1
+		self.fitness = None
 		#self.fx = fx
 
 	def setFitness(self, fitness): self.fitness = fitness
@@ -85,7 +86,7 @@ class Poblacion(object):
 			#print(fitness)
 			individuo.setFitness( fitness )
 			self.totalFitness += fitness
-			print(totalFitness)
+			print(self.totalFitness)
 
 	def ruleta( self ):
 		totalProbabilidad = 0

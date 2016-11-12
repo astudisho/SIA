@@ -13,6 +13,7 @@ class Individuo():
 		for i in range( self.__numDimensiones ):
 			self.__solucion.append( self.getRandom( self.__rangoMin, self.__rangoMax ) )
 
+	
 
 	def getSolucion(self): return self.__solucion
 	def getNumDimensiones(self): return self.__numDimensiones
@@ -23,7 +24,6 @@ class Individuo():
 
 	@staticmethod
 	def suma( ind1, ind2 ):
-		print("SUMA", ind2.getSolucion() )
 		aux = copy.deepcopy( ind1 )
 		vectorAux = []
 
@@ -36,8 +36,6 @@ class Individuo():
 
 	@staticmethod
 	def resta(ind1, ind2):
-		print("RESTA", ind1.getSolucion() )
-		print("RESTA", ind2.getSolucion() )
 		aux = copy.deepcopy( ind1 )
 		vectorAux = []
 
@@ -45,9 +43,5 @@ class Individuo():
 			vectorAux.append( ind1.getSolucion()[ i ] - ind2.getSolucion()[ i ] )
 
 		aux.setSolucion( vectorAux )
-
-		print(vectorAux)
-
-		input()
 
 		return aux
